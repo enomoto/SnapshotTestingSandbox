@@ -13,7 +13,6 @@ import Nimble_Snapshots
 
 @testable import SnapshotTestingSandbox
 
-
 final class ViewControllerSpec: QuickSpec {
     override func spec() {
         var sut: ViewController!
@@ -23,6 +22,10 @@ final class ViewControllerSpec: QuickSpec {
 
             it("view exists") {
                 expect(sut).notTo(beNil())
+                // スナップショットを取得
+                //📷(sut)
+                // 非同期でスナップショットがあることを確認
+                expect(sut).toEventually(haveValidSnapshot())
             }
         }
     }
